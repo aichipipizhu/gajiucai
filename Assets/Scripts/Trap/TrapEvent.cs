@@ -21,18 +21,19 @@ public class TrapEvent : MonoBehaviour
     }
     public Dir dirNum;
     public Trap trap;
-    public GameObject [] trapPrefabs = new GameObject [9];
+    public GameObject [] trapPrefabs = new GameObject [10];
     private void Start()
     {
      //读取数据，为每个事件添加配置   
     }
     public void EventStart()
-    {
+    {   
+        
         GameObject trapObject = Instantiate(trapPrefabs[TrapType]);//生成TrapType陷阱
         trap = trapObject.GetComponent<Trap>();
         trap.Init(TrapType);
-
-        Vector3 pos = new Vector3(Random.Range(area[0],area[3]),Random.Range(area[1],area[4]));
+        
+        Vector3 pos = new Vector3(Random.Range(area[0],area[1]),Random.Range(area[2],area[3]),0f);
         trap.EnableEntity(pos);
         switch(dirNum)
         {
@@ -60,12 +61,16 @@ public class TrapEvent : MonoBehaviour
     {
         None,//0
         屠龙宝刀,//1
-        江南皮革厂,//2
-        游泳健身,//3
-        弹窗,//4
-        steam,//5
-        首充6元,//6
-        买一送一,//7
-        推荐算法,//8
+        买一送一,//2
+        Steam,//3
+        推送广告,//4
+        游泳健身,//5
+        江南皮革厂,//6
+        推荐算法,//7
+        节日活动,//8
+        首充6元,//9
+        弹窗,//10
+
+    
     }
 }

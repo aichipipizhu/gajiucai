@@ -16,6 +16,8 @@ public class Shadow : MonoBehaviour
     public float alphaSet;//初始值
     public float alphaMuti;
     public Color color;
+    float xScale;
+    float yScale;
 
     private void OnEnable() {
         player=GameObject.FindGameObjectWithTag("Player").transform;
@@ -26,12 +28,18 @@ public class Shadow : MonoBehaviour
         transform.position = player.position;
         transform.rotation = player.rotation;
         activeStart = Time.time;
+        xScale = transform.localScale.x;
+        yScale = transform.localScale.y;
     }
     
     void Update()
     {
         color.a *= alphaMuti;
         thisSprite.color = color;
+        if(player.GetComponent<PlayerController>().movementInput.x<-0.1f)
+            transform.localScale = new Vector3(xScale,yScale,1);
+        else
+            transform.localScale = new Vector3(-xScale,yScale,1);
         if(Time.time>=activeStart+activeTime)
         {
             Pool.instance.ReturnPool(gameObject);

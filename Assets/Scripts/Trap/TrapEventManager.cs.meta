@@ -1,9 +1,11 @@
 fileFormatVersion: 2
-guid: 7ab93f7aeb8d1224ca51f566f92bc181
+guid: 262db0c5ac7ab074b90627a4647a3aa6
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - trapGroupData: {fileID: 4900000, guid: 30cd9d8a3e1e44c489d02b78509cb57b, type: 3}
+  - m_trapEvent: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
